@@ -38,11 +38,16 @@ function displayEntries(xhttp) {
     edit.innerHTML = "Edit";
     edit.setAttribute('onclick', "javascript:loadText(" + item['cid'] + ")");
     child.append(edit);
+    var del = document.createElement('button');
+    del.innerHTML = "Delete";
+    del.setAttribute('onclick', "location.href='php/cms/delete.php?cid=" + item['cid'] + "'");
+    child.append(del);
   });
 }
 
 function loadText(cid) {
-  var textarea = document.getElementById('myTextarea');
+  var textarea = document.querySelector('textarea');
   var text = document.getElementById(cid);
   textarea.value = text.innerHTML;
+  textarea.setAttribute('id', cid);
 }
