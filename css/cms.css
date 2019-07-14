@@ -3,7 +3,6 @@
 /* Default Tags */
 * {
   color: white;
-  text-align: center;
   font-family: 'Pavanam', sans-serif;
 }
 
@@ -17,6 +16,7 @@ ul {
   width: 45%;
   margin: 16px;
   float: left;
+  text-align: center;
 }
 
 li {
@@ -29,7 +29,6 @@ form {
 }
 
 textarea {
-  text-align: left;
   width: 100%;
   min-height: 90%;
   box-sizing: border-box;
@@ -66,9 +65,9 @@ input[type=submit]:hover {
   cursor: pointer;
 }
 
-a {
-  margin: 4px;
+button {
   padding: 8px;
+  margin: 4px;
 }
 
 /* Classes */
@@ -86,6 +85,7 @@ a {
 .main {
   flex: 88%;
   background-color: rgb(10, 10, 10);
+  text-align: left;
 }
 
 .control {
@@ -119,7 +119,6 @@ a {
 .entry {
   display: flex;
   flex-wrap: wrap;
-  text-align: left !important;
   border: 2px solid white;
   padding: 8px;
   margin-bottom: 12px;
@@ -131,6 +130,7 @@ a {
   width: 100%;
   margin: 4px;
   padding: 8px;
+  text-align: center;
 }
 
 .username, .entry_date {

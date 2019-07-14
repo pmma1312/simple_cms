@@ -32,10 +32,17 @@ function displayEntries(xhttp) {
     entry_date.innerHTML = item['entry_date']
     grandChild.appendChild(username);
     grandChild.appendChild(entry_date);
+    text.setAttribute('id', item['cid'])
     child.appendChild(text);
-    var edit = document.createElement('a');
+    var edit = document.createElement('button');
     edit.innerHTML = "Edit";
-    edit.setAttribute('href', 'php/cms/edit.php?id=' + item['cid']);
+    edit.setAttribute('onclick', "javascript:loadText(" + item['cid'] + ")");
     child.append(edit);
   });
+}
+
+function loadText(cid) {
+  var textarea = document.getElementById('myTextarea');
+  var text = document.getElementById(cid);
+  textarea.value = text.innerHTML;
 }

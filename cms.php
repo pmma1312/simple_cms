@@ -34,7 +34,7 @@
         </div>
         <div class="edit">
           <form class="" action="" method="post">
-            <textarea name="editor"></textarea>
+            <textarea id="myTextarea" name="editor"></textarea>
             <input type="submit" name="" value="Submit">
           </form>
         </div>
