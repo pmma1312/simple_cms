@@ -67,3 +67,8 @@ function newEntry() {
   textarea.removeAttribute('id');
   textarea.focus();
 }
+
+function clearTextarea() {
+  var textarea = document.querySelector('textarea');
+  textarea.value = "";
+}

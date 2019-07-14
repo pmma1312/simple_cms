@@ -29,17 +29,17 @@ input[type=submit] {
   transition: border 0.5s ease-out;
 }
 
-textarea:focus, input[type=submit]:focus {
+textarea:focus {
   outline: none;
   transition: border 0.5s ease-in;
 }
 
 textarea:focus {
-  border-color: purple;
+  border-color: rgb(180, 83, 254);
 }
 
 input[type=submit]:hover {
-  border: 2px solid purple;
+  border: 2px solid rgb(180, 83, 254);
   transition: border 0.5s ease-in;
   cursor: pointer;
 }
@@ -91,7 +91,8 @@ button:hover {
   flex-wrap: wrap;
   border: 2px solid white;
   padding: 8px;
-  margin-bottom: 12px;
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 
 .entry-info {
