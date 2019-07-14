@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css?family=Pavanam&display=swap');
+
+/* Default Tags */
+* {
+  color: white;
+  font-family: 'Pavanam', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+  width: 45%;
+  margin: 16px;
+  float: left;
+  text-align: center;
+}
+
+li {
+  padding: 12px;
+}
+
+a {
+  padding: 8px;
+}
+
+/* Classes */
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.navbar {
+  flex: 12%;
+  background-color: rgb(50, 50, 50);
+}
+
+.main {
+  flex: 88%;
+  background-color: rgb(20, 20, 20);
+  text-align: left;
+}
+
+.active {
+  background-color: purple;
+  border-radius: 16px;
+}

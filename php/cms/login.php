@@ -42,7 +42,6 @@ class Login {
     }
 
     return $userExists;
-
   }
 
   private function passwordValid() {

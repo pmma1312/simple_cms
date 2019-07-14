@@ -13,7 +13,8 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/cms.css">
     <script src="js/cms.js"></script>
   </head>
@@ -21,6 +22,8 @@
     <div class="container">
       <div class="navbar">
         <ul>
+          <li><a href="" class="active">Home</a></li>
+          <li><a href="settings.php">Settings</a></li>
           <li><a href="php/logout.php">Logout</a></li>
         </ul>
       </div>

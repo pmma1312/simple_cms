@@ -7,6 +7,7 @@ CREATE TABLE admin(
   aid INT NOT NULL AUTO_INCREMENT,
   username VARCHAR(12) NOT NULL,
   password VARCHAR(128) NOT NULL,
+  profile_pic VARCHAR(128) NOT NULL,
   PRIMARY KEY(aid)
 );
 
