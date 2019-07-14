@@ -1,0 +1,25 @@
+DROP DATABASE IF EXISTS cms;
+CREATE DATABASE cms;
+
+USE cms;
+
+CREATE TABLE admin(
+  aid INT NOT NULL AUTO_INCREMENT,
+  username VARCHAR(12) NOT NULL,
+  password VARCHAR(128) NOT NULL,
+  PRIMARY KEY(aid)
+);
+
+CREATE TABLE content(
+  cid INT NOT NULL AUTO_INCREMENT,
+  aid INT NOT NULL,
+  content LONGTEXT NOT NULL,
+  entry_date DATE NOT NULL,
+  edited TIMESTAMP NOT NULL,
+  PRIMARY KEY(cid),
+  FOREIGN KEY(aid) REFERENCES admin(aid)
+  ON UPDATE CASCADE ON DELETE RESTRICT
+);
+
+CREATE USER 'content'@'localhost' IDENTIFIED BY '1337';
+GRANT ALL ON cms.* TO 'content'@'localhost';
