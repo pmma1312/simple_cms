@@ -4,6 +4,7 @@
 
   if(!isset($_SESSION['logged_in'])) {
     header("Location: login.php");
+    session_destroy();
     die();
   }
 
@@ -29,11 +30,11 @@
 
           </div>
           <div class="info">
-
+            <button type="button" name="button" onclick="javascript:newEntry();">New Blog Entry</button>
           </div>
         </div>
         <div class="edit">
-          <form class="" action="" method="post">
+          <form class="" action="php/cms/entry.php" id="edit_form" method="post">
             <textarea id="" name="editor"></textarea>
             <input type="submit" name="" value="Submit">
           </form>

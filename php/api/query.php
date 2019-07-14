@@ -44,7 +44,7 @@ if(!isset($_GET['no_limit'])) {
   $page = strip_tags($conn->real_escape_string($_GET['page']));
   $query = "SELECT content.cid, admin.username, content.content, DATE_FORMAT(content.entry_date, '%d.%m.%Y') AS entry_date FROM content JOIN admin ON content.aid = admin.aid WHERE content.deleted != 1 ORDER BY content.cid LIMIT 1 OFFSET " . $page;
 } else {
-  $query = "SELECT content.cid, admin.username, content.content, DATE_FORMAT(content.entry_date, '%d.%m.%Y') AS entry_date FROM content JOIN admin ON content.aid = admin.aid WHERE content.deleted != 1 ORDER BY content.cid";
+  $query = "SELECT content.cid, admin.username, content.content, DATE_FORMAT(content.entry_date, '%d.%m.%Y') AS entry_date FROM content JOIN admin ON content.aid = admin.aid WHERE content.deleted != 1 ORDER BY content.cid DESC";
 }
 
 $result = $conn->query($query);

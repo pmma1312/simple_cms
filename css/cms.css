@@ -30,7 +30,7 @@ form {
 
 textarea {
   width: 100%;
-  min-height: 90%;
+  min-height: 88%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -38,6 +38,7 @@ textarea {
   background: none;
   border: 2px solid white;
   padding: 12px;
+  margin-bottom: 8px;
   transition: border 0.5s ease-out;
   font-size: 16px;
 }
@@ -48,6 +49,7 @@ input[type=submit] {
   background: none;
   border: 2px solid white;
   padding: 8px;
+  margin-bottom: 12px;
   transition: border 0.5s ease-out;
 }
 
@@ -71,7 +73,6 @@ button {
   margin: 4px;
   background: none;
   border: 2px solid white;
-  width: 48.8%;
   display: inline;
 }
 
@@ -136,15 +137,15 @@ button:hover {
 
 .entry-info {
   display: flex;
-  border: 2px solid white;
   width: 100%;
-  margin: 4px;
-  padding: 8px;
   text-align: center;
 }
 
 .username, .entry_date {
   flex: 50%;
+  border: 2px solid white;
+  margin: 4px;
+  padding: 8px;
 }
 
 .text {
@@ -152,6 +153,29 @@ button:hover {
   border: 2px solid white;
   margin: 4px;
   padding: 8px;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.delete, .edit_b {
+  flex: 50%;
+  transition: background-color 0.5s ease-out;
+}
+
+.delete, .edit_b:hover {
+  transition: background-color 0.5s ease-out;
+}
+
+.delete:hover {
+  background-color: rgba(254, 88, 88, 0.4);
+}
+
+.edit_b:hover {
+  background-color: rgba(126, 254, 131, 0.4);
 }
 
 /* IDs */
