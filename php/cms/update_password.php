@@ -24,4 +24,14 @@
   $conn = new Database();
   $conn = $conn->getConn();
 
+  $query = "UPDATE admin SET password = '" . $password . "' WHERE aid = " . $_SESSION['aid'];
+
+  if(!$conn->query($query)) {
+    echo "Updating the password failed!";
+    die();
+  }
+
+  header("Location: ../../settings.php");
+  die();
+
 ?>

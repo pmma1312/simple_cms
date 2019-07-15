@@ -41,7 +41,9 @@
           <div class="update profilepic">
             <h1>Update Profilepic</h1>
             <form class="" action="php/cms/update_profilepic.php" method="post" enctype="multipart/form-data">
-
+              <img id="output">
+              <input type="file" accept="image/*" name="pic" onchange="loadFile(event)">
+              <input type="submit" name="" value="Submit">
             </form>
           </div>
         </div>
