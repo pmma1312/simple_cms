@@ -44,10 +44,10 @@ if(isset($_POST['title'])) {
 }
 
 if(isset($_POST['title']) && isset($_POST['editor'])) {
-  $query = "UPDATE content SET title = '" . $text . "' WHERE cid = " . $cid;
+  $query = "UPDATE content SET title = '" . $title . "' WHERE cid = " . $cid;
   $query1 = "UPDATE content SET content = '" . $text . "' WHERE cid = " . $cid;
 } elseif(isset($_POST['title']) && !isset($_POST['editor'])) {
-  $query = "UPDATE content SET title = '" . $text . "' WHERE cid = " . $cid;
+  $query = "UPDATE content SET title = '" . $title . "' WHERE cid = " . $cid;
 } else {
   $query = "UPDATE content SET content = '" . $text . "' WHERE cid = " . $cid;
 }
