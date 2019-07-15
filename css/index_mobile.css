@@ -1,4 +1,8 @@
 @media only screen and (max-width: 1400px) {
+  pre {
+    overflow: auto;
+  }
+
   .container {
     flex-direction: column;
   }

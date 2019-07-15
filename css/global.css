@@ -24,16 +24,6 @@ li {
   padding: 12px;
 }
 
-a {
-  padding: 8px;
-  transition: color 0.5s ease-in;
-}
-
-a:hover {
-  color: rgb(180, 83, 254);
-  transition: color 0.5s ease-out;
-}
-
 /* Classes */
 .container {
   display: flex;
@@ -47,6 +37,16 @@ a:hover {
   display: block;
 }
 
+.navbar a {
+  padding: 8px;
+  transition: color 0.5s ease-in;
+}
+
+.navbar a:hover {
+  color: rgb(180, 83, 254);
+  transition: color 0.5s ease-out;
+}
+
 .main {
   flex: 88%;
   background-color: rgb(20, 20, 20);
@@ -54,6 +54,10 @@ a:hover {
 }
 
 .active {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.active:hover {
   color: rgba(255, 255, 255, 0.4);
 }
 

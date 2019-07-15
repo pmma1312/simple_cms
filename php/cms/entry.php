@@ -12,10 +12,10 @@
     die();
   }
 
-  if(strlen($_POST['editor']) < 1) {
-    echo "No text recieved!";
+  if(strlen($_POST['editor']) < 1 || strlen($_POST['title']) < 1) {
     echo "
       <script>
+        alert('No text recieved!');
         setTimeout(function(){
             location.href = '../../cms.php';
         }, 3000);
@@ -27,8 +27,9 @@
   include("../api/core/database.php");
   $conn = new Database();
   $conn = $conn->getConn();
+  $allowedTags = "<a><b><i><h2><h3><h4><h5><h6><pre><style>";
 
-  $text = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['editor'])));
+  $text = strip_tags($conn->real_escape_string($_POST['editor']), $allowedTags);
   $title = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['title'])));
 
   $date = date("Y-m-d");

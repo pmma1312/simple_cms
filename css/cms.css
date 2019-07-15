@@ -66,6 +66,10 @@ button:hover {
   cursor: pointer;
 }
 
+pre {
+  overflow: auto;
+}
+
 /* Classes */
 .control {
   display: flex;
@@ -136,6 +140,24 @@ button:hover {
   display: flex;
   flex-direction: row;
   width: 100%;
+}
+
+.allowed {
+  padding: 4px;
+  margin: 4px;
+  border: 2px solid white;
+}
+
+.allowed p {
+  font-size: 21px;
+  text-align: center;
+  border-bottom: 2px solid white;
+  padding: 4px;
+}
+
+.tags {
+  word-spacing: 18px;
+  border-bottom: 0px solid white !important;
 }
 
 .delete, .edit_b, .btn {

@@ -12,9 +12,9 @@ html, body {
   background-color: rgb(20, 20, 20);
 }
 
-a {
+pre {
   padding: 8px;
-  margin: 8px;
+  border: 2px solid white;
 }
 
 /* Classes */
@@ -24,8 +24,8 @@ a {
 
 .main {
   background-color: rgb(30, 30, 30);
-  box-shadow: 12px 12px 32px #000000;
-  flex: 80%;
+  box-shadow: 12px 12px 24px #000000;
+  flex: 90%;
   min-height: 85vh;
   margin: 128px;
   margin-top: 64px;
@@ -34,8 +34,8 @@ a {
 }
 
 .left, .right {
-  flex: 10%;
-  margin: 128px;
+  flex: 5%;
+  margin: 100px;
   display: block;
   text-align: center;
 }
@@ -84,10 +84,15 @@ a {
   white-space: pre-wrap;
 }
 
+.link {
+  padding: 8px;
+  margin: 8px;
+}
+
 .btn {
   flex: 50%;
   margin: 8px;
-  padding: 4px;
+  padding: 8px;
   background: none;
   border: 2px solid white;
   transition: border 0.5s ease-out;

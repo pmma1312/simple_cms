@@ -58,7 +58,7 @@ class File {
 
   private function checkFileExists() {
     $i = 0;
-    while(file_exists($this->dir . "/" . $this->name)) {
+    while(file_exists($_SERVER['DOCUMENT_ROOT'] . "/" . $this->dir . $this->name)) {
       $this->name = $i . $this->name;
       $i += 1;
     }

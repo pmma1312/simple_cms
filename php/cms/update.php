@@ -35,8 +35,9 @@ if(!isset($_GET['cid'])) {
 include("../api/core/database.php");
 $conn = new Database();
 $conn = $conn->getConn();
+$allowedTags = "<a><b><i><h2><h3><h4><h5><h6><pre><style>";
 
-$text = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['editor'])));
+$text = strip_tags($conn->real_escape_string($_POST['editor']), $allowedTags);
 $cid = $conn->real_escape_string($_GET['cid']);
 
 if(isset($_POST['title'])) {

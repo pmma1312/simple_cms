@@ -37,6 +37,19 @@
             <div class="stats">
               <p id="total"></p>
             </div>
+            <div class="allowed">
+              <p>
+                The following HTML tags are allowed to use within entries:
+              </p>
+              <p class="tags">
+                &lt;h2-h6&gt;
+                &lt;i&gt;
+                &lt;b&gt;
+                &lt;pre&gt;
+                &lt;a&gt;
+                &lt;style&gt;
+              </p>
+            </div>
             <div class="buttons">
               <button type="button" name="button" class="btn" onclick="javascript:newEntry();">New Blog Entry</button>
               <button type="button" name="button" class="btn" onclick="javascript:clearInputFields();">Clear Text Input Fields</button>
@@ -45,7 +58,7 @@
         </div>
         <div class="edit">
           <form class="" action="php/cms/entry.php" id="edit_form" method="post">
-            <input type="text" name="title" id="title" placeholder="Title" autocomplete="off">
+            <input type="text" name="title" id="title" placeholder="Title" autocomplete="off" required>
             <textarea id="" name="editor" required></textarea>
             <input type="submit" name="" value="Submit">
           </form>

@@ -8,7 +8,7 @@ function getBlogPost(page) {
       displayEntries(xhttp);
     } else if (this.readyState == 4 && this.status == 204) {
       i -= 1;
-      alert("Newest Blog Entry!");
+      alert("Oldest entry!");
     }
   }
   xhttp.open("GET", "php/api/query.php?page=" + page, true);
@@ -54,6 +54,7 @@ function displayEntries(xhttp) {
     articleInfo.appendChild(entry_date);
 
     parent.appendChild(text);
+    document.title = item['title'];
   });
 
   var control = document.createElement("div");
@@ -76,6 +77,7 @@ function displayEntries(xhttp) {
 
   var login = document.createElement("a");
   login.setAttribute("href", "login.php");
+  login.className = "link";
   login.innerHTML = "Admin Panel Login";
   parent.appendChild(login);
 
@@ -83,7 +85,7 @@ function displayEntries(xhttp) {
 
 function newPost(type) {
   if (i == 0 && type == "prev") {
-    alert("Newest post!");
+    alert("Newest entry!");
   } else if (type == "next") {
     i += 1;
   } else {
