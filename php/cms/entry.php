@@ -34,7 +34,7 @@
 
   $date = date("Y-m-d");
 
-  $query = "INSERT INTO content(aid, title, content, entry_date) VALUES(" . $_SESSION['aid'] . ", '" . $title . "', '" . $text . "', '" . $date . "')";
+  $query = "INSERT INTO content(aid, title, content, entry_date, deleted) VALUES(" . $_SESSION['aid'] . ", '" . $title . "', '" . $text . "', '" . $date . "', '0')";
 
   if(!$conn->query($query)) {
     die();
