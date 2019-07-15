@@ -13,9 +13,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="css/cms.css">
+    <link rel="stylesheet" href="css/cms_mobile.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/global_mobile.css">
     <script src="js/cms.js"></script>
   </head>
   <body>

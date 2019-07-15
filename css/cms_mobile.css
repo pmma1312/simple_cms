@@ -1,0 +1,35 @@
+@media only screen and (max-width: 1400px) {
+  .control, .entry, .entry-info, .buttons, .info, .edit {
+    flex-direction: column;
+    flex: 100%;
+  }
+
+  .control {
+    height: auto;
+  }
+
+  .info {
+    height: auto;
+  }
+
+  .entry-list {
+    max-height: 40vh;
+  }
+
+  .entry {
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+
+  .edit {
+    height: 40vh;
+  }
+
+  .text, .username, .entry_date, .entry_info, .buttons {
+    width: auto;
+  }
+
+  .text, .username, .entry_date {
+    max-width: 92%;
+  }
+}

@@ -1,0 +1,14 @@
+@media only screen and (max-width: 1400px) {
+  .navbar {
+    display: none;
+  }
+
+  .container {
+    height: auto;
+    max-width: 100%;
+  }
+
+  .main {
+    max-width: 100%;
+  }
+}
