@@ -42,14 +42,24 @@ $conn = $conn->getConn();
 
 if(!isset($_GET['no_limit'])) {
   $page = strip_tags($conn->real_escape_string($_GET['page']));
-  $query = "SELECT content.cid, admin.username, content.title, content.content, DATE_FORMAT(content.entry_date, '%d.%m.%Y') AS entry_date FROM content JOIN admin ON content.aid = admin.aid WHERE content.deleted != 1 ORDER BY content.cid LIMIT 1 OFFSET " . $page;
+  $query = "SELECT content.cid, admin.username, content.title, content.content, DATE_FORMAT(content.entry_date, '%d.%m.%Y') AS entry_date FROM content JOIN admin ON content.aid = admin.aid WHERE content.deleted != 1 ORDER BY content.cid DESC LIMIT 1 OFFSET " . $page;
 } else {
   $query = "SELECT content.cid, admin.username, content.title, content.content, DATE_FORMAT(content.entry_date, '%d.%m.%Y') AS entry_date, DATE_FORMAT(content.edited, '%d.%m.%Y - %H:%i') AS edited FROM content JOIN admin ON content.aid = admin.aid WHERE content.deleted != 1 ORDER BY content.cid DESC";
 }
 
 $result = $conn->query($query);
 
-if($result->num_rows < 1) {
+if($result) {
+  if($result->num_rows < 1) {
+    $response = array(
+      "code" => 102,
+      "error" => "No data found!"
+    );
+    http_response_code(200);
+    echo json_encode($response);
+    die();
+  }
+} else {
   $response = array(
     "code" => 102,
     "error" => "No data found!"
