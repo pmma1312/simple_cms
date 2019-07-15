@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="navbar">
+      <div class="navbar" id="nav">
         <ul>
           <li><a href="cms.php">Home</a></li>
           <li><a href="" class="active">Settings</a></li>
@@ -28,12 +28,13 @@
         </ul>
       </div>
       <div class="main">
+        <button id="burgor" onclick="javscript:showmenu();">&#9776;</button>
         <div class="user_settings">
           <div class="update password">
             <h1>Update Password</h1>
             <form action="php/cms/update_password.php" id="fr" onsubmit="event.preventDefault(); validateForm();" method="post">
-              <input type="password" name="password_1" id="pw1" placeholder="Password" oninput="comparePasswords();" required>
-              <input type="password" name="password_2" id="pw2" placeholder="Repeat password" oninput="comparePasswords();" required>
+              <input type="password" name="password_1" id="pw1" placeholder="Password" oninput="comparePasswords();" autocomplete="new-password" required>
+              <input type="password" name="password_2" id="pw2" placeholder="Repeat password" oninput="comparePasswords();" autocomplete="new-password" required>
               <input type="submit" value="Submit">
               <p id='pwinfo'>Passwords do not match</p>
             </form>
@@ -50,4 +51,5 @@
       </div>
     </div>
   </body>
+  <script src="js/global.js"></script>
 </html>

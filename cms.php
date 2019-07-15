@@ -14,13 +14,13 @@
   <head>
     <meta charset="utf-8">
     <title>Admin Panel</title>
-    <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/cms.css">
+    <link rel="stylesheet" href="css/global.css">
     <script src="js/cms.js"></script>
   </head>
   <body>
     <div class="container">
-      <div class="navbar">
+      <div class="navbar" id="nav">
         <ul>
           <li><a href="" class="active">Home</a></li>
           <li><a href="settings.php">Settings</a></li>
@@ -28,6 +28,7 @@
         </ul>
       </div>
       <div class="main">
+        <button id="burgor" onclick="javscript:showmenu();">&#9776;</button>
         <div class="control">
           <div class="entry-list">
 
@@ -49,4 +50,5 @@
       </div>
     </div>
   </body>
+  <script src="js/global.js"></script>
 </html>

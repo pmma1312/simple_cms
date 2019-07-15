@@ -43,6 +43,7 @@ a:hover {
 .navbar {
   flex: 12%;
   background-color: rgb(50, 50, 50);
+  display: block;
 }
 
 .main {
@@ -53,4 +54,21 @@ a:hover {
 
 .active {
   color: rgba(255, 255, 255, 0.4);
+}
+
+/* IDs */
+#burgor {
+  padding-left: 16px;
+  margin: 0;
+  font-size: 24px;
+  border: none;
+  background: none;
+}
+
+#burgor:hover {
+  cursor: pointer;
+}
+
+#burgor:focus {
+  outline: none;
 }

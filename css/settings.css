@@ -36,8 +36,8 @@ h1, p {
 .update {
   flex: 50%;
   border: 2px solid white;
-  margin: 8px;
-  padding: 8px;
+  margin: 16px;
+  padding: 16px;
 }
 
 .password {}

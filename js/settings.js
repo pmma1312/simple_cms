@@ -7,7 +7,7 @@ function comparePasswords() {
 
   var form = document.getElementById('fr');
 
-  if (pw1.value != pw2.value) {
+  if (pw1.value != pw2.value || pw1.value.length < 1 || pw2.value.length < 1) {
     pwinfo.innerHTML = "Passwords do not match";
     pwinfo.style.color = "rgba(254, 88, 88, 0.4)";
   } else {
