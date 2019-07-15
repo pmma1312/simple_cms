@@ -33,13 +33,16 @@
 
           </div>
           <div class="info">
-            <button type="button" name="button" onclick="javascript:newEntry();">New Blog Entry</button>
-            <button type="button" name="button" onclick="javascript:clearTextarea();">Clear Text Input Field</button>
+            <div class="buttons">
+              <button type="button" name="button" class="btn" onclick="javascript:newEntry();">New Blog Entry</button>
+              <button type="button" name="button" class="btn" onclick="javascript:clearTextarea();">Clear Text Input Field</button>
+            </div>
           </div>
         </div>
         <div class="edit">
           <form class="" action="php/cms/entry.php" id="edit_form" method="post">
-            <textarea id="" name="editor"></textarea>
+            <input type="text" name="title" id="title" placeholder="Title" autocomplete="off">
+            <textarea id="" name="editor" required></textarea>
             <input type="submit" name="" value="Submit">
           </form>
         </div>

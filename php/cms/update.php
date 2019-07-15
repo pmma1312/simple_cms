@@ -36,14 +36,32 @@ include("../api/core/database.php");
 $conn = new Database();
 $conn = $conn->getConn();
 
-$text = strip_tags($conn->real_escape_string($_POST['editor']));
+$text = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['editor'])));
 $cid = $conn->real_escape_string($_GET['cid']);
 
-$query = "UPDATE content SET content = '" . $text . "' WHERE cid = " . $cid;
+if(isset($_POST['title'])) {
+  $title = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['title'])));
+}
+
+if(isset($_POST['title']) && isset($_POST['editor'])) {
+  $query = "UPDATE content SET title = '" . $text . "' WHERE cid = " . $cid;
+  $query1 = "UPDATE content SET content = '" . $text . "' WHERE cid = " . $cid;
+} elseif(isset($_POST['title']) && !isset($_POST['editor'])) {
+  $query = "UPDATE content SET title = '" . $text . "' WHERE cid = " . $cid;
+} else {
+  $query = "UPDATE content SET content = '" . $text . "' WHERE cid = " . $cid;
+}
 
 if(!$conn->query($query)) {
     echo $conn->error;
     die();
+}
+
+if(isset($query1)) {
+  if(!$conn->query($query1)) {
+    echo $conn->error;
+    die();
+  }
 }
 
 header("Location: ../../cms.php");

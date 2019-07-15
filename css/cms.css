@@ -4,9 +4,22 @@ form {
   width: 100%;
 }
 
+input {
+  width: 100%;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  margin-bottom: 8px;
+  padding: 8px;
+  background: none;
+  border: 2px solid white;
+  font-size: 16px;
+  transition: border 0.5s ease-out;
+}
+
 textarea {
   width: 100%;
-  min-height: 88%;
+  min-height: 75%;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -29,12 +42,9 @@ input[type=submit] {
   transition: border 0.5s ease-out;
 }
 
-textarea:focus {
+textarea:focus, input:focus {
   outline: none;
   transition: border 0.5s ease-in;
-}
-
-textarea:focus {
   border-color: rgb(180, 83, 254);
 }
 
@@ -121,13 +131,17 @@ button:hover {
   width: 100%;
 }
 
-.delete, .edit_b {
+.delete, .edit_b, .btn {
   flex: 50%;
   transition: background-color 0.5s ease-out;
 }
 
-.delete, .edit_b:hover {
+.delete, .edit_b:hover, .btn {
   transition: background-color 0.5s ease-out;
+}
+
+.btn:hover {
+  background-color: rgba(180, 83, 254, 0.4);
 }
 
 .delete:hover {

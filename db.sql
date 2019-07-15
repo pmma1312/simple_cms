@@ -14,6 +14,7 @@ CREATE TABLE admin(
 CREATE TABLE content(
   cid INT NOT NULL AUTO_INCREMENT,
   aid INT NOT NULL,
+  title VARCHAR(24) NOT NULL,
   content LONGTEXT NOT NULL,
   entry_date DATE NOT NULL,
   edited TIMESTAMP NOT NULL,

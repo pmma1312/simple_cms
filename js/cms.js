@@ -21,19 +21,32 @@ function displayEntries(xhttp) {
     var grandChild = document.createElement('div');
     grandChild.className = "entry-info"
     child.appendChild(grandChild);
+
     var username = document.createElement('div');
-    var text = document.createElement('div');
     var entry_date = document.createElement('div');
+    var title = document.createElement('div');
+    var text = document.createElement('div');
+
     username.className = "username";
-    text.className = "text";
     entry_date.className = "entry_date";
+    title.className = "text";
+    text.className = "text";
+
     username.innerHTML = item['username'];
+    entry_date.innerHTML = item['entry_date'];
+    title.innerHTML = item['title'];
     text.innerHTML = item['content'];
-    entry_date.innerHTML = item['entry_date']
+
     grandChild.appendChild(username);
     grandChild.appendChild(entry_date);
-    text.setAttribute('id', item['cid'])
+
+    title.setAttribute('id', item['cid'] + "_t");
+    child.append(title);
+
+    text.setAttribute('id', item['cid']);
     child.appendChild(text);
+
+
     var grandChild = document.createElement('div');
     grandChild.className = "buttons";
     child.append(grandChild);
@@ -54,8 +67,11 @@ function loadText(cid) {
   var form = document.getElementById('edit_form');
   form.setAttribute("action", "php/cms/update.php?cid=" + cid);
   var textarea = document.querySelector('textarea');
+  var in_title = document.getElementById('title');
   var text = document.getElementById(cid);
+  var title = document.getElementById(cid + "_t");
   textarea.value = text.innerHTML;
+  in_title.value = title.innerHTML;
   textarea.setAttribute('id', cid);
   textarea.focus();
 }
