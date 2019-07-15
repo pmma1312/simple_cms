@@ -36,6 +36,7 @@ a {
 .left, .right {
   flex: 10%;
   margin: 128px;
+  display: block;
   text-align: center;
 }
 

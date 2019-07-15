@@ -22,7 +22,7 @@
     <div class="container">
       <div class="navbar" id="nav">
         <ul>
-          <li><a href="" class="active">Home</a></li>
+          <li><a href="#" class="active">Home</a></li>
           <li><a href="settings.php">Settings</a></li>
           <li><a href="php/logout.php">Logout</a></li>
         </ul>

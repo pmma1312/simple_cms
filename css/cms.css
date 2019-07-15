@@ -123,6 +123,7 @@ button:hover {
   border: 2px solid white;
   margin: 4px;
   padding: 8px;
+  white-space: pre-wrap;
 }
 
 .stats {

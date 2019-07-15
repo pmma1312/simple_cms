@@ -23,7 +23,7 @@
       <div class="navbar" id="nav">
         <ul>
           <li><a href="cms.php">Home</a></li>
-          <li><a href="" class="active">Settings</a></li>
+          <li><a href="#" class="active">Settings</a></li>
           <li><a href="php/logout.php">Logout</a></li>
         </ul>
       </div>
