@@ -12,10 +12,13 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Settings</title>
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/global_mobile.css">
     <link rel="stylesheet" href="css/settings.css">
+    <link rel="stylesheet" href="css/settings_mobile.css">
     <script src="js/settings.js"></script>
   </head>
   <body>

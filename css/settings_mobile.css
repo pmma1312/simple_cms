@@ -1,0 +1,5 @@
+@media only screen and (max-width: 1400px) {
+  .user_settings {
+    flex-direction: column;
+  }
+}
