@@ -73,7 +73,7 @@ button:hover {
 }
 
 .edit {
-  height: 37vh;
+  height: 35vh;
   border: 2px solid white;
   margin: 16px;
   padding: 16px;
@@ -123,6 +123,12 @@ button:hover {
   border: 2px solid white;
   margin: 4px;
   padding: 8px;
+}
+
+.stats {
+  margin: 4px;
+  margin-bottom: 32px;
+  border-bottom: 2px solid white;
 }
 
 .buttons {

@@ -14,6 +14,7 @@ function fetchEntries() {
 function displayEntries(xhttp) {
   var data = JSON.parse(xhttp.responseText);
   var parent = document.querySelector(".entry-list");
+  var i = 0;
   data.forEach(function(item, index) {
     var child = document.createElement('div');
     child.className = "entry"
@@ -64,7 +65,10 @@ function displayEntries(xhttp) {
     del.setAttribute('onclick', "location.href='php/cms/delete.php?cid=" + item['cid'] + "'");
     del.className = "delete";
     grandChild.append(del);
+    i += 1;
   });
+  var total = document.getElementById('total');
+  total.innerHTML = "Total Blog Posts: " + i;
 }
 
 function loadText(cid) {
