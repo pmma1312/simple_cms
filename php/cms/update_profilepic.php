@@ -19,6 +19,13 @@
   $conn = new Database();
   $conn = $conn->getConn();
 
+  # Get old profile pic
+  $query = "SELECT profile_pic FROM admin WHERE aid = " . $_SESSION['aid'];
+  $result = $conn->query($query);
+  $result = $result->fetch_assoc();
+
+  $old = $result['profile_pic'];
+
   $file = new File($_FILES['pic'], $conn);
 
   if(!$file->checkFile()) {
@@ -26,16 +33,20 @@
     die();
   }
 
-  $query = "UPDATE admin SET profile_pic = '" . $file->fullFileName . "' WHERE aid = " . $_SESSION['aid'];
+  $query = "UPDATE admin SET profile_pic = '" . $file->insertName . "' WHERE aid = " . $_SESSION['aid'];
+
+  if(!move_uploaded_file($_FILES['pic']['tmp_name'], $file->fullFileName)) {
+    # Move error
+    die();
+  }
 
   if(!$conn->query($query)) {
     # DB error
     die();
   }
 
-  if(!move_uploaded_file($_FILES['pic']['tmp_name'], $file->fullFileName)) {
-    # Move error
-    die();
+  if($old != "img/admin/default.png") {
+    unlink($_SERVER['DOCUMENT_ROOT'] . "/" . $old);
   }
 
   header("Location: ../../settings.php");

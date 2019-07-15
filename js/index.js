@@ -26,14 +26,19 @@ function displayEntries(xhttp) {
 
 
     var author = document.createElement("div");
+    var pp = document.createElement("img");
     var title = document.createElement("div");
     var text = document.createElement("div");
     var entry_date = document.createElement("div");
 
+
     author.className = "author";
+    pp.className = "profile_pic";
     title.className = "title";
     text.className = "text";
     entry_date.className = "entry_date";
+
+    pp.src = item['profile_pic'];
 
     author.innerHTML = "Author: " + item['username'];
     title.innerHTML = item['title'];
@@ -41,6 +46,7 @@ function displayEntries(xhttp) {
     entry_date.innerHTML = "Published: " + item['entry_date'];
 
     parent.appendChild(title);
+    parent.appendChild(pp);
 
     parent.appendChild(articleInfo);
 

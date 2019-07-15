@@ -10,6 +10,7 @@ class File {
 
   public $error;
   public $fullFileName;
+  public $insertName;
 
   public function __construct($file, $conn) {
     $this->type     = $file['type'];
@@ -30,7 +31,8 @@ class File {
       return false;
     }
     $this->checkFileExists();
-    $this->fullFileName = $this->dir . basename($this->name);
+    $this->insertName = $this->dir . basename($this->name);
+    $this->fullFileName = $_SERVER['DOCUMENT_ROOT'] . "/" . $this->dir . basename($this->name);
     return true;
   }
 
