@@ -6,6 +6,9 @@ function getBlogPost(page) {
   xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       displayEntries(xhttp);
+    } else if (this.readyState == 4 && this.status == 204) {
+      i -= 1;
+      alert("Newest Blog Entry!");
     }
   }
   xhttp.open("GET", "php/api/query.php?page=" + page, true);
@@ -37,12 +40,13 @@ function displayEntries(xhttp) {
     text.innerHTML = item['content'];
     entry_date.innerHTML = "Published: " + item['entry_date'];
 
+    parent.appendChild(title);
+
     parent.appendChild(articleInfo);
 
     articleInfo.appendChild(author);
     articleInfo.appendChild(entry_date);
 
-    parent.appendChild(title);
     parent.appendChild(text);
   });
 
@@ -64,6 +68,11 @@ function displayEntries(xhttp) {
   control.appendChild(prev);
   control.appendChild(next);
 
+  var login = document.createElement("a");
+  login.setAttribute("href", "login.php");
+  login.innerHTML = "Admin Panel Login";
+  parent.appendChild(login);
+
 }
 
 function newPost(type) {
@@ -75,4 +84,11 @@ function newPost(type) {
     i -= 1;
   }
   getBlogPost(i);
+  scrollToTop();
+}
+
+function scrollToTop() {
+  window.scrollTo({
+    top: 0
+  });
 }

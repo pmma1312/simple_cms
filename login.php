@@ -39,6 +39,7 @@
           <input type="password" name="password" placeholder="Password" required>
           <input type="submit" name="submit" value="Login">
         </form>
+        <a href="index.html">Home</a>
       </div>
     </div>
   </body>

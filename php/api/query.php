@@ -55,7 +55,7 @@ if($result) {
       "code" => 102,
       "error" => "No data found!"
     );
-    http_response_code(200);
+    http_response_code(204);
     echo json_encode($response);
     die();
   }
@@ -64,7 +64,7 @@ if($result) {
     "code" => 102,
     "error" => "No data found!"
   );
-  http_response_code(200);
+  http_response_code(204);
   echo json_encode($response);
   die();
 }

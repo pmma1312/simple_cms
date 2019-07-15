@@ -12,6 +12,11 @@ html, body {
   background-color: rgb(20, 20, 20);
 }
 
+a {
+  padding: 8px;
+  margin: 8px;
+}
+
 /* Classes */
 .container {
   display: flex;
@@ -58,6 +63,7 @@ html, body {
   border-bottom: 2px solid white;
   width: 50%;
   margin: auto;
+  margin-top: 16px;
 }
 
 .text {
