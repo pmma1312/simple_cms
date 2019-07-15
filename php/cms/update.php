@@ -40,6 +40,10 @@ $text = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['editor']))
 $cid = $conn->real_escape_string($_GET['cid']);
 
 if(isset($_POST['title'])) {
+  if(strlen($_POST['title']) < 1) {
+    # Title to short => error
+    die();
+  }
   $title = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['title'])));
 }
 

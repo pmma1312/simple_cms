@@ -26,16 +26,19 @@ function displayEntries(xhttp) {
     var entry_date = document.createElement('div');
     var title = document.createElement('div');
     var text = document.createElement('div');
+    var lastEdited = document.createElement('div');
 
     username.className = "username";
     entry_date.className = "entry_date";
     title.className = "text";
     text.className = "text";
+    lastEdited.className = "text";
 
     username.innerHTML = item['username'];
     entry_date.innerHTML = item['entry_date'];
     title.innerHTML = item['title'];
     text.innerHTML = item['content'];
+    lastEdited.innerHTML = "Last edited: " + item['edited'];
 
     grandChild.appendChild(username);
     grandChild.appendChild(entry_date);
@@ -46,6 +49,7 @@ function displayEntries(xhttp) {
     text.setAttribute('id', item['cid']);
     child.appendChild(text);
 
+    child.appendChild(lastEdited);
 
     var grandChild = document.createElement('div');
     grandChild.className = "buttons";
@@ -73,18 +77,24 @@ function loadText(cid) {
   textarea.value = text.innerHTML;
   in_title.value = title.innerHTML;
   textarea.setAttribute('id', cid);
-  textarea.focus();
+  in_title.focus();
 }
 
 function newEntry() {
   var form = document.getElementById('edit_form');
   form.setAttribute("action", "php/cms/entry.php");
   var textarea = document.querySelector('textarea');
+  var in_title = document.getElementById('title');
   textarea.removeAttribute('id');
-  textarea.focus();
+  in_title.focus();
 }
 
-function clearTextarea() {
+function clearInputFields() {
+  var form = document.getElementById('edit_form');
   var textarea = document.querySelector('textarea');
+  var in_title = document.getElementById('title');
+  form.setAttribute("action", "php/cms/entry.php");
+  textarea.removeAttribute('id');
   textarea.value = "";
+  in_title.value = "";
 }

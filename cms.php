@@ -35,7 +35,7 @@
           <div class="info">
             <div class="buttons">
               <button type="button" name="button" class="btn" onclick="javascript:newEntry();">New Blog Entry</button>
-              <button type="button" name="button" class="btn" onclick="javascript:clearTextarea();">Clear Text Input Field</button>
+              <button type="button" name="button" class="btn" onclick="javascript:clearInputFields();">Clear Text Input Fields</button>
             </div>
           </div>
         </div>

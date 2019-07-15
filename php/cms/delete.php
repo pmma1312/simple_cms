@@ -26,6 +26,13 @@
     die();
   }
 
+  $result = $result->fetch_assoc();
+
+  if($result['aid'] != $_SESSION['aid']) {
+    # User tried to delete post that hasn't been published by user
+    die();
+  }
+
   $query = "UPDATE content SET deleted = 1 WHERE cid = " . $cid;
 
   if(!$conn->query($query)) {

@@ -1,0 +1,47 @@
+/* Default Tags */
+input {
+  width: 98%;
+  display: inline-block;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  padding: 8px;
+  margin: 4px;
+  background: none;
+  border: 2px solid white;
+  transition: border 0.5s ease-out;
+}
+
+textarea:focus, input:focus {
+  outline: none;
+  transition: border 0.5s ease-in;
+  border-color: rgb(180, 83, 254);
+}
+
+input[type=submit]:hover {
+  border: 2px solid rgb(180, 83, 254);
+  transition: border 0.5s ease-in;
+  cursor: pointer;
+}
+
+h1, p {
+  margin: 4px;
+}
+
+/* Classes */
+.user_settings {
+  display: flex;
+}
+
+.update {
+  flex: 50%;
+  border: 2px solid white;
+  margin: 8px;
+  padding: 8px;
+}
+
+.password {}
+
+.profilepic {}
+
+/* IDs */
