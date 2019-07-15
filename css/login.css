@@ -21,8 +21,10 @@ input {
   margin: 8px;
   background: none;
   border: 2px solid white;
-  transition: border 0.5s ease-out;
+  transition-property: background-color border;
+  transition: all 0.5s ease-out;
   font-size: 16px;
+  border-radius: 4px;
 }
 
 input:focus {
@@ -34,7 +36,9 @@ input:focus {
 input[type=submit]:hover {
   cursor: pointer;
   border: 2px solid rgb(180, 83, 254);
-  transition: border 0.5s ease-in;
+  background-color: rgba(180, 83, 254, 0.1);
+  transition-property: background-color border;
+  transition: all 0.5s ease-in;
 }
 
 h1, a {

@@ -22,6 +22,7 @@ pre {
 /* Classes */
 .container {
   display: flex;
+  margin-bottom: 8px;
 }
 
 .main {
