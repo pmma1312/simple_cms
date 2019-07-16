@@ -25,6 +25,7 @@
     <div class="container">
       <div class="navbar" id="nav">
         <ul>
+          <p id="logged">Logged in as: <?php echo  $_SESSION['username']; ?></p>
           <li><a href="cms.php">Home</a></li>
           <li><a href="#" class="active">Settings</a></li>
           <li><a href="php/logout.php">Logout</a></li>

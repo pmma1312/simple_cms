@@ -6,14 +6,13 @@ class Database {
 
   public function __construct() {
     # Config
-    $host = "127.0.0.1";
-    $db = "cms";
-    $user = "content";
-    $password = "1337";
-    $port = 3306;
+    define("HOST", "127.0.0.1");
+    define("DATABASE", "cms");
+    define("USERNAME", "content");
+    define("PASSWORD", "1337");
 
     try {
-      $this->mysqli = new mysqli($host, $user, $password, $db);
+      $this->mysqli = new mysqli(HOST, USERNAME, PASSWORD, DATABASE);
     } catch(Exception $e) {
       $response = array(
         "code" => 99,

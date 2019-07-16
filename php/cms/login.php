@@ -3,8 +3,8 @@
 class Login {
 
   public $aid;
+  public $username;
 
-  private $username;
   private $password;
   private $db_password;
 

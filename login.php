@@ -14,6 +14,7 @@
     if($login->verifyCredentials()) {
       $_SESSION['logged_in'] = true;
       $_SESSION['aid'] = $login->aid;
+      $_SESSION['username'] = $login->username;
       header("Location: cms.php");
       die();
     } else {

@@ -1,6 +1,17 @@
 document.onload = fetchEntries();
 fetchVisitors();
 
+// Allow tab in textarea
+var textarea = document.querySelector('textarea');
+textarea.onkeydown = function(e) {
+  if (e.keyCode == 9 || e.which == 9) {
+    e.preventDefault();
+    var s = this.selectionStart;
+    this.value = this.value.substring(0, this.selectionStart) + "\t" + this.value.substring(this.selectionEnd);
+    this.selectionEnd = s + 1;
+  }
+}
+
 function fetchVisitors() {
   var xhttp = new XMLHttpRequest();
   xhttp.withCredentials = true;
@@ -18,8 +29,8 @@ function displayVisitorStats(xhttp) {
   visitors = JSON.parse(visitors);
   var visit_t = document.getElementById('visit_t');
   var visit_u = document.getElementById('visit_u');
-  visit_t.innerHTML = "Total visits: " + visitors[0]['visits'];
-  visit_u.innerHTML = "Unique visitors: " + visitors[0]['visitors_unique'];
+  visit_t.innerHTML = "Total Visits: " + visitors[0]['visits'];
+  visit_u.innerHTML = "Unique Visitors: " + visitors[0]['visitors_unique'];
 }
 
 function fetchEntries() {
