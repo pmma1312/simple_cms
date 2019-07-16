@@ -42,9 +42,12 @@ h1, p {
   padding: 16px;
 }
 
-.password {}
-
-.profilepic {}
+.add_user {
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  margin: 16px;
+  padding: 16px;
+}
 
 /* IDs */
 #output {

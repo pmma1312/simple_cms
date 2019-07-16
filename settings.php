@@ -51,6 +51,13 @@
             </form>
           </div>
         </div>
+        <div class="add_user">
+          <p>The default password for every user is "admin" I advise to change this as soon as possible</p>
+          <form class="" action="php/cms/adduser.php" method="post">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="submit" name="submit" value="Submit">
+          </form>
+        </div>
       </div>
     </div>
   </body>
