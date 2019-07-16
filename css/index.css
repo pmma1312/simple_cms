@@ -27,13 +27,15 @@ pre {
 
 .main {
   background-color: rgb(30, 30, 30);
+  -webkit-box-shadow: 35px 18px 12px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 35px 18px 12px rgba(0, 0, 0, 0.3);
   box-shadow: 35px 18px 12px rgba(0, 0, 0, 0.3);
   flex: 90%;
   min-height: 85vh;
   margin: 128px;
   margin-top: 64px;
-  margin-bottom: 64px;
-  border: 2px groove rgba(255, 255, 255, 0.5);
+  margin-bottom: 32px;
+  border: 2px groove rgba(255, 255, 255, 0.3);
   border-radius: 4px;
 }
 
@@ -82,11 +84,15 @@ pre {
 
 .title {
   text-align: center;
-  font-size: 32px;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-  width: 50%;
+  display: block;
+  font-size: 36px;
+  font-weight: bold;
+  border-bottom: 2px groove rgba(255, 255, 255, 0.3);
+  width: auto;
   margin: auto;
-  margin-top: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .text {

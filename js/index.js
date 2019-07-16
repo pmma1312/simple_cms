@@ -1,5 +1,7 @@
 var i = 0;
 document.onload = getBlogPost(i);
+window.onload = updateVisitor;
+document.onkeydown = checkKey;
 
 function getBlogPost(page) {
   var xhttp = new XMLHttpRequest();
@@ -12,6 +14,12 @@ function getBlogPost(page) {
     }
   }
   xhttp.open("GET", "php/api/query.php?page=" + page, true);
+  xhttp.send();
+}
+
+function updateVisitor() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.open("PUT", "php/api/visitor.php", true);
   xhttp.send();
 }
 
@@ -39,6 +47,7 @@ function displayEntries(xhttp) {
     entry_date.className = "entry_date";
 
     pp.src = item['profile_pic'];
+    pp.alt = "author picture"
 
     author.innerHTML = "Author: " + item['username'];
     title.innerHTML = item['title'];
@@ -99,4 +108,16 @@ function scrollToTop() {
   window.scrollTo({
     top: 0
   });
+}
+
+function checkKey(e) {
+  e = e || window.event;
+
+  if (e.keyCode == "37") {
+    // Left arrow => Previous Entry
+    newPost("prev");
+  } else if (e.keyCode == "39") {
+    // Right arrow => Next Entry
+    newPost("next");
+  }
 }

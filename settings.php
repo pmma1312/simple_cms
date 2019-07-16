@@ -43,7 +43,7 @@
             </form>
           </div>
           <div class="update profilepic">
-            <h1>Update Profilepic</h1>
+            <h1>Update Profile Picture</h1>
             <form class="" action="php/cms/update_profilepic.php" method="post" enctype="multipart/form-data">
               <img id="output">
               <input type="file" accept="image/*" name="pic" onchange="loadFile(event)">

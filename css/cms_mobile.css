@@ -1,4 +1,9 @@
 @media only screen and (max-width: 1400px) {
+  input[type=submit] {
+    display: block;
+    margin-bottom: 16px;
+  }
+
   .control, .entry, .entry-info, .buttons, .info, .edit {
     flex-direction: column;
     flex: 100%;

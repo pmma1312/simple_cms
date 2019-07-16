@@ -24,5 +24,12 @@ CREATE TABLE content(
   ON UPDATE CASCADE ON DELETE RESTRICT
 );
 
+CREATE TABLE visitors (
+  vid INT NOT NULL AUTO_INCREMENT,
+  ip VARCHAR(12) NOT NULL,
+  visited TIMESTAMP NOT NULL,
+  PRIMARY KEY(vid)
+);
+
 CREATE USER 'content'@'localhost' IDENTIFIED BY '1337';
 GRANT ALL ON cms.* TO 'content'@'localhost';

@@ -1,4 +1,26 @@
 document.onload = fetchEntries();
+fetchVisitors();
+
+function fetchVisitors() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.withCredentials = true;
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      displayVisitorStats(xhttp);
+    }
+  }
+  xhttp.open("GET", "php/api/visitor.php", true);
+  xhttp.send();
+}
+
+function displayVisitorStats(xhttp) {
+  var visitors = xhttp.responseText;
+  visitors = JSON.parse(visitors);
+  var visit_t = document.getElementById('visit_t');
+  var visit_u = document.getElementById('visit_u');
+  visit_t.innerHTML = "Total visits: " + visitors[0]['visits'];
+  visit_u.innerHTML = "Unique visitors: " + visitors[0]['visitors_unique'];
+}
 
 function fetchEntries() {
   var xhttp = new XMLHttpRequest();
@@ -67,8 +89,10 @@ function displayEntries(xhttp) {
     grandChild.append(del);
     i += 1;
   });
+
   var total = document.getElementById('total');
   total.innerHTML = "Total Blog Posts: " + i;
+
 }
 
 function loadText(cid) {

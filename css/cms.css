@@ -140,9 +140,14 @@ pre {
 }
 
 .stats {
-  margin: 4px;
+  margin: 8px;
   margin-bottom: 32px;
+}
+
+.stats p {
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 8px;
+  padding-left: 0;
 }
 
 .buttons {

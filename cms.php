@@ -39,6 +39,8 @@
           <div class="info">
             <div class="stats">
               <p id="total"></p>
+              <p id="visit_t"></p>
+              <p id="visit_u"></p>
             </div>
             <div class="allowed">
               <p>
