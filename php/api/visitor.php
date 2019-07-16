@@ -15,13 +15,10 @@
   $conn = $conn->getConn();
 
   if($_SERVER['REQUEST_METHOD'] == "PUT") {
-
     $query = "INSERT INTO visitors(ip) VALUES('" . $_SERVER['REMOTE_ADDR'] . "')";
-
     $conn->query($query);
-
+    
     http_response_code(200);
-
     die();
   }
 
