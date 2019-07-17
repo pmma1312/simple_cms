@@ -53,4 +53,5 @@
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="js/error_success_helper.js"></script>
   <script src="js/error.js"></script>
+  <script src="js/success.js"></script>
 </html>

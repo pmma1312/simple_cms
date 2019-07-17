@@ -6,7 +6,7 @@ class myError {
 
   public function __construct($errorText) {
     include("cookie.php");
-    
+
     $this->errorText = $errorText;
 
     $cookie = new Cookie();
