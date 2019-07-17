@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="css/cms_mobile.css">
     <link rel="stylesheet" href="css/global.css">
     <link rel="stylesheet" href="css/global_mobile.css">
-    <script src="js/cms.js"></script>
   </head>
   <body>
     <div class="container">
@@ -74,6 +73,7 @@
       </div>
     </div>
   </body>
+  <script src="js/cms.js"></script>
   <script src="js/global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
   <script src="js/error_success_helper.js"></script>
