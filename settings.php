@@ -64,4 +64,6 @@
     </div>
   </body>
   <script src="js/global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="js/error.js"></script>
 </html>

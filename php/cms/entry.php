@@ -2,25 +2,24 @@
 
   session_start();
 
+  include("../classes/error.php");
+
   if(!isset($_SESSION['logged_in'])) {
-    header("Location: login.php");
+    $error = new myError("Unauthorized access.");
+    header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_POST['editor']) || !isset($_POST['title'])) {
+    $error = new myError("Post data missing.");
+    header("Location: ../../cms.php");
     die();
   }
 
-  if(strlen($_POST['editor']) < 1 || strlen($_POST['title']) < 1) {
-    echo "
-      <script>
-        alert('No text recieved!');
-        setTimeout(function(){
-            location.href = '../../cms.php';
-        }, 3000);
-      </script>
-    ";
+  if(strlen($_POST['editor']) < 1 || strlen(trim($_POST['title'])) < 1) {
+    $error = new myError("Text or title is not set!");
+    header("Location: ../../cms.php");
     die();
   }
 
@@ -37,6 +36,8 @@
   $query = "INSERT INTO content(aid, title, content, entry_date, deleted) VALUES(" . $_SESSION['aid'] . ", '" . $title . "', '" . $text . "', '" . $date . "', '0')";
 
   if(!$conn->query($query)) {
+    $error = new myError("Inserting the entry failed.");
+    header("Location: ../../cms.php");
     die();
   }
 

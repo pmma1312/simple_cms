@@ -2,14 +2,17 @@
 
   session_start();
 
+  include("../classes/error.php");
+
   if(!isset($_SESSION['logged_in'])) {
+    $error = new myError("Unauthorized access.");
     header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_POST['username'])) {
-    echo "<script>alert('Username is not set!');</script>";
+    $error = new myError("Username is not set!");
     header("Location: ../../settings.php");
     die();
   }
@@ -24,7 +27,7 @@
   $result = $conn->query($query);
 
   if($result->num_rows > 0) {
-    echo "<script>alert('User with this name exists already!');</script>";
+    $error = new myError("User with this name exists already!");
     header("Location: ../../settings.php");
     die();
   }
@@ -34,7 +37,7 @@
   $query = "INSERT INTO admin(username, password, profile_pic) VALUES('" . $username . "', '" . $password . "', 'img/admin/default.png')";
 
   if(!$conn->query($query)) {
-    echo "<script>alert('Adding the user failed!');</script>";
+    $error = new myError("Adding the user failed!");
     header("Location: ../../settings.php");
     die();
   }

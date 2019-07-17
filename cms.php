@@ -3,6 +3,8 @@
   session_start();
 
   if(!isset($_SESSION['logged_in'])) {
+    include("php/classes/error.php");
+    $error = new myError("Unauthorized access.");
     header("Location: login.php");
     session_destroy();
     die();
@@ -73,4 +75,6 @@
     </div>
   </body>
   <script src="js/global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="js/error.js"></script>
 </html>

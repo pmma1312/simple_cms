@@ -2,19 +2,24 @@
 
   session_start();
 
+  include("../classes/error.php");
+
   if(!isset($_SESSION['logged_in'])) {
-    header("Location: login.php");
+    $error = new myError("Unauthorized access.");
+    header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_POST['password_1']) || !isset($_POST['password_2'])) {
-    echo "Post variables missing!";
+    $error = new myError("Post variables missing!");
+    header("Location: ../../settings.php");
     die();
   }
 
   if($_POST['password_1'] != $_POST['password_2']) {
-    echo "Passwords do not match!";
+    $error = new myError("Passwords do not match!");
+    header("Location: ../../settings.php");
     die();
   }
 
@@ -27,7 +32,8 @@
   $query = "UPDATE admin SET password = '" . $password . "' WHERE aid = " . $_SESSION['aid'];
 
   if(!$conn->query($query)) {
-    echo "Updating the password failed!";
+    $error = new myError("Updating the password failed!");
+    header("Location: ../../settings.php");
     die();
   }
 

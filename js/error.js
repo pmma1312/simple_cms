@@ -1,7 +1,7 @@
 checkError();
 
 function checkError() {
-  myCookie = getCookie("error").replace("+", " ");
+  myCookie = replaceAll(getCookie("error"), "+", " ");
   if (myCookie != "") {
     Swal.fire({
       title: "Error!",
@@ -32,4 +32,12 @@ function getCookie(cname) {
 
 function eraseCookie(name) {
   document.cookie = name + '=;expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
+function replaceAll(str, find, replace) {
+  return str.replace(new RegExp(escapeRegExp(find), 'g'), replace);
+}
+
+function escapeRegExp(str) {
+  return str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
 }

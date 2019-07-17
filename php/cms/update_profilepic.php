@@ -2,14 +2,18 @@
 
   session_start();
 
+  include("../classes/error.php");
+
   if(!isset($_SESSION['logged_in'])) {
-    header("Location: login.php");
+    $error = new myError("Unauthorized access.");
+    header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_FILES['pic'])) {
-    echo "No file found";
+    $error = new myError("No file found");
+    header("Location: ../../settings.php");
     die();
   }
 
@@ -29,19 +33,22 @@
   $file = new File($_FILES['pic'], $conn);
 
   if(!$file->checkFile()) {
-    echo $file->error;
+    $error = new myError($file->error);
+    header("Location: ../../settings.php");
     die();
   }
 
   $query = "UPDATE admin SET profile_pic = '" . $file->insertName . "' WHERE aid = " . $_SESSION['aid'];
 
   if(!move_uploaded_file($_FILES['pic']['tmp_name'], $file->fullFileName)) {
-    # Move error
+    $error = new myError("Moving the uploaded file failed.");
+    header("Location: ../../settings.php");
     die();
   }
 
   if(!$conn->query($query)) {
-    # DB error
+    $error = new myError("Database update failed.");
+    header("Location: ../../settings.php");
     die();
   }
 
