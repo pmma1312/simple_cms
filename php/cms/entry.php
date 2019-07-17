@@ -27,7 +27,7 @@
   include("../api/core/database.php");
   $conn = new Database();
   $conn = $conn->getConn();
-  $allowedTags = "<a><b><i><h2><h3><h4><h5><h6><pre><style>";
+  $allowedTags = "<a><b><i><h2><h3><h4><h5><h6><pre>";
 
   $text = strip_tags($conn->real_escape_string($_POST['editor']), $allowedTags);
   $title = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['title'])));

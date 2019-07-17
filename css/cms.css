@@ -77,7 +77,8 @@ pre {
 /* Classes */
 .control {
   display: flex;
-  height: 50vh;
+  height: 52vh;
+  box-sizing: border-box;
 }
 
 .edit {
@@ -97,6 +98,8 @@ pre {
 
 .entry-list {
   text-align: left;
+  position: relative;
+  box-sizing: border-box;
   flex: 50%;
   overflow: auto;
 }
@@ -123,6 +126,7 @@ pre {
 }
 
 .username, .entry_date {
+  box-sizing: border-box;
   flex: 50%;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 4px;
@@ -131,6 +135,7 @@ pre {
 }
 
 .text {
+  box-sizing: border-box;
   width: 100%;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 4px;
@@ -151,6 +156,7 @@ pre {
 }
 
 .buttons {
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -164,7 +170,7 @@ pre {
 }
 
 .allowed p {
-  font-size: 21px;
+  font-size: 18px;
   text-align: center;
   border-bottom: 2px solid rgba(255, 255, 255, 0.5);
   padding: 4px;

@@ -13,6 +13,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#141414">
     <meta charset="utf-8">
     <title>Settings</title>
     <link rel="stylesheet" href="css/global.css">

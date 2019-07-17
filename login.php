@@ -9,6 +9,8 @@
 
   if(isset($_POST['username']) && isset($_POST['password'])) {
     include("php/cms/login.php");
+    include("php/classes/error.php");
+
     $login = new Login($_POST['username'], $_POST['password']);
 
     if($login->verifyCredentials()) {
@@ -18,7 +20,8 @@
       header("Location: cms.php");
       die();
     } else {
-      echo "Bad login";
+      $error = new myError("Login failed!");
+      header("Location: login.php");
       die();
     }
   }
@@ -27,6 +30,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
+    <meta name="theme-color" content="#141414">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <title>Admin Panel Login</title>
@@ -36,8 +40,8 @@
   <body>
     <div class="container">
       <div class="main">
-        <h1>Admin Panel Login</h1>
         <form class="" method="post">
+          <h1>Admin Panel Login</h1>
           <input type="text" name="username" placeholder="Username" autocomplete="off" required autofocus>
           <input type="password" name="password" placeholder="Password" required>
           <input type="submit" name="submit" value="Login">
@@ -46,4 +50,6 @@
       </div>
     </div>
   </body>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="js/error.js"></script>
 </html>

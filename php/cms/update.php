@@ -33,9 +33,11 @@ if(!isset($_GET['cid'])) {
 }
 
 include("../api/core/database.php");
+include("../classes/error.php");
+
 $conn = new Database();
 $conn = $conn->getConn();
-$allowedTags = "<a><b><i><h2><h3><h4><h5><h6><pre><style>";
+$allowedTags = "<a><b><i><h2><h3><h4><h5><h6><pre>";
 
 $text = strip_tags($conn->real_escape_string($_POST['editor']), $allowedTags);
 $cid = $conn->real_escape_string($_GET['cid']);
@@ -51,21 +53,16 @@ if($result->num_rows < 1) {
 $result = $result->fetch_assoc();
 
 if($result['aid'] != $_SESSION['aid']) {
-  echo "You can only edit your own posts!";
-  echo "
-    <script>
-      setTimeout(function(){
-          location.href = '../../cms.php';
-      }, 3000);
-    </script>
-  ";
+  $error = new Error("You can only edit your own posts!");
+  header("Location: ../../cms.php");
   die();
 }
 
 
 if(isset($_POST['title'])) {
   if(strlen($_POST['title']) < 1) {
-    # Title to short => error
+    $error = new Error("The title can't be empty!");
+    header("Location: ../../cms.php");
     die();
   }
   $title = htmlspecialchars(strip_tags($conn->real_escape_string($_POST['title'])));
@@ -81,13 +78,15 @@ if(isset($_POST['title']) && isset($_POST['editor'])) {
 }
 
 if(!$conn->query($query)) {
-    echo $conn->error;
+    $error = new Error("Update failed, please try again!");
+    header("Location: ../../cms.php");
     die();
 }
 
 if(isset($query1)) {
   if(!$conn->query($query1)) {
-    echo $conn->error;
+    $error = new Error("Update failed, please try again!");
+    header("Location: ../../cms.php");
     die();
   }
 }

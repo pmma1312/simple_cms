@@ -13,6 +13,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="theme-color" content="#141414">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Panel</title>
     <link rel="stylesheet" href="css/cms.css">
@@ -53,7 +54,6 @@
                 &lt;b&gt;
                 &lt;pre&gt;
                 &lt;a&gt;
-                &lt;style&gt;
               </p>
             </div>
             <div class="buttons">
