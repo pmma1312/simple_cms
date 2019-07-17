@@ -52,15 +52,14 @@
   $result = $result->fetch_assoc();
 
   if($result['aid'] != $_SESSION['aid']) {
-    $error = new Error("You can only edit your own posts!");
+    $error = new myError("You can only edit your own posts!");
     header("Location: ../../cms.php");
     die();
   }
 
-
   if(isset($_POST['title'])) {
     if(strlen($_POST['title']) < 1) {
-      $error = new Error("The title can't be empty!");
+      $error = new myError("The title can't be empty!");
       header("Location: ../../cms.php");
       die();
     }
@@ -77,14 +76,14 @@
   }
 
   if(!$conn->query($query)) {
-      $error = new Error("Update failed, please try again!");
+      $error = new myError("Update failed, please try again!");
       header("Location: ../../cms.php");
       die();
   }
 
   if(isset($query1)) {
     if(!$conn->query($query1)) {
-      $error = new Error("Update failed, please try again!");
+      $error = new myError("Update failed, please try again!");
       header("Location: ../../cms.php");
       die();
     }

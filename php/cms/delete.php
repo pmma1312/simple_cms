@@ -27,6 +27,7 @@
 
   if($result->num_rows < 1) {
     $error = new myError("The entry you're trying to edit doesn't exist.");
+    header("Location: ../../cms.php");
     die();
   }
 
@@ -34,6 +35,7 @@
 
   if($result['aid'] != $_SESSION['aid']) {
     $error = new myError("You can only delete your own entrys.");
+    header("Location: ../../cms.php");
     die();
   }
 
@@ -41,6 +43,7 @@
 
   if(!$conn->query($query)) {
     $error = new myError("Update failed, please try again.");
+    header("Location: ../../cms.php");
     die();
   }
 
