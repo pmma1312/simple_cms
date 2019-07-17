@@ -89,6 +89,9 @@
     }
   }
 
+  include("../classes/success.php");
+  $success = new mySuccess("The entry has been updated successful.");
+
   header("Location: ../../cms.php");
   die();
 

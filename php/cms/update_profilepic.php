@@ -56,6 +56,9 @@
     unlink($_SERVER['DOCUMENT_ROOT'] . "/" . $old);
   }
 
+  include("../classes/success.php");
+  $success = new mySuccess("The profile pic has successfully been updated.");
+
   header("Location: ../../settings.php");
   die();
 

@@ -42,6 +42,9 @@
     die();
   }
 
+  include("../classes/success.php");
+  $success = new mySuccess("Successfully added user " . $username);
+
   header("Location: ../../settings.php");
   die();
 

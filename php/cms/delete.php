@@ -47,6 +47,9 @@
     die();
   }
 
+  include("../classes/success.php");
+  $success = new mySuccess("Deleted entry successful.");
+
   header("Location: ../../cms.php");
   die();
 

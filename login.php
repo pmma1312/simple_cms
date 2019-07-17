@@ -20,7 +20,7 @@
       header("Location: cms.php");
       die();
     } else {
-      $error = new myError("Login failed!");
+      $error = new myError("Invalid username or password!");
       header("Location: login.php");
       die();
     }
@@ -51,5 +51,6 @@
     </div>
   </body>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="js/error_success_helper.js"></script>
   <script src="js/error.js"></script>
 </html>

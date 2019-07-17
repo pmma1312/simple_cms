@@ -41,6 +41,9 @@
     die();
   }
 
+  include("../classes/success.php");
+  $success = new mySuccess("The entry has been created.");
+
   header("Location: ../../cms.php");
   die();
 

@@ -37,6 +37,9 @@
     die();
   }
 
+  include("../classes/success.php");
+  $success = new mySuccess("The password has successfully been updated.");
+
   header("Location: ../../settings.php");
   die();
 
