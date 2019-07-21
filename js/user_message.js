@@ -16,6 +16,8 @@ function checkMessage() {
 
       if (types[i] == "error") {
         document.querySelector(".swal2-modal").style.backgroundColor = "rgb(20, 20, 20)";
+      } else {
+        document.getElementById("swal2-content").style.color = "rgb(20, 20, 20)";
       }
 
       eraseCookie(types[i]);
