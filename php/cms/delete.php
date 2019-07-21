@@ -2,16 +2,16 @@
 
   session_start();
 
-  include("../classes/error.php");
+  include("../classes/userMessage.php");
 
   if(!isset($_SESSION['logged_in'])) {
-    $error = new myError("Unauthorized access.");
+    $error = new userMessage("Unauthorized access.", "error");
     header("Location: ../../login.php");
     die();
   }
 
   if(!isset($_GET['cid'])) {
-    $error = new myError("CID is not set.");
+    $error = new userMessage("CID is not set.", "error");
     header("Location: ../../cms.php");
     die();
   }
@@ -26,7 +26,7 @@
   $result = $conn->query($query);
 
   if($result->num_rows < 1) {
-    $error = new myError("The entry you're trying to edit doesn't exist.");
+    $error = new userMessage("The entry you're trying to edit doesn't exist.", "error");
     header("Location: ../../cms.php");
     die();
   }
@@ -34,7 +34,7 @@
   $result = $result->fetch_assoc();
 
   if($result['aid'] != $_SESSION['aid']) {
-    $error = new myError("You can only delete your own entrys.");
+    $error = new userMessage("You can only delete your own entrys.", "error");
     header("Location: ../../cms.php");
     die();
   }
@@ -42,13 +42,12 @@
   $query = "UPDATE content SET deleted = 1 WHERE cid = " . $cid;
 
   if(!$conn->query($query)) {
-    $error = new myError("Update failed, please try again.");
+    $error = new userMessage("Update failed, please try again.", "error");
     header("Location: ../../cms.php");
     die();
   }
 
-  include("../classes/success.php");
-  $success = new mySuccess("Deleted entry successful.");
+  $success = new userMessage("Deleted entry successful.", "success");
 
   header("Location: ../../cms.php");
   die();

@@ -2,23 +2,23 @@
 
   session_start();
 
-  include("../classes/error.php");
+  include("../classes/userMessage.php");
 
   if(!isset($_SESSION['logged_in'])) {
-    $error = new myError("Unauthorized access.");
+    $error = new userMessage("Unauthorized access.", "error");
     header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_POST['editor']) || !isset($_POST['title'])) {
-    $error = new myError("Post data missing.");
+    $error = new userMessage("Post data missing.", "error");
     header("Location: ../../cms.php");
     die();
   }
 
   if(strlen($_POST['editor']) < 1 || strlen(trim($_POST['title'])) < 1) {
-    $error = new myError("Text or title is not set!");
+    $error = new userMessage("Text or title is not set!", "error");
     header("Location: ../../cms.php");
     die();
   }
@@ -36,13 +36,13 @@
   $query = "INSERT INTO content(aid, title, content, entry_date, deleted) VALUES(" . $_SESSION['aid'] . ", '" . $title . "', '" . $text . "', '" . $date . "', '0')";
 
   if(!$conn->query($query)) {
-    $error = new myError("Inserting the entry failed.");
+    $error = new userMessage("Inserting the entry failed.", "error");
     header("Location: ../../cms.php");
     die();
   }
 
   include("../classes/success.php");
-  $success = new mySuccess("The entry has been created.");
+  $success = new userMessage("The entry has been created.", "success");
 
   header("Location: ../../cms.php");
   die();

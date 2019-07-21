@@ -2,17 +2,17 @@
 
   session_start();
 
-  include("../classes/error.php");
+  include("../classes/userMessage.php");
 
   if(!isset($_SESSION['logged_in'])) {
-    $error = new myError("Unauthorized access.");
+    $error = new userMessage("Unauthorized access.", "error");
     header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_POST['username'])) {
-    $error = new myError("Username is not set!");
+    $error = new userMessage("Username is not set!", "error");
     header("Location: ../../settings.php");
     die();
   }
@@ -27,7 +27,7 @@
   $result = $conn->query($query);
 
   if($result->num_rows > 0) {
-    $error = new myError("User with this name exists already!");
+    $error = new userMessage("User with this name exists already!", "error");
     header("Location: ../../settings.php");
     die();
   }
@@ -37,13 +37,12 @@
   $query = "INSERT INTO admin(username, password, profile_pic) VALUES('" . $username . "', '" . $password . "', 'img/admin/default.png')";
 
   if(!$conn->query($query)) {
-    $error = new myError("Adding the user failed!");
+    $error = new userMessage("Adding the user failed!", "error");
     header("Location: ../../settings.php");
     die();
   }
 
-  include("../classes/success.php");
-  $success = new mySuccess("Successfully added user " . $username);
+  $success = new userMessage("Successfully added user " . $username, "success");
 
   header("Location: ../../settings.php");
   die();

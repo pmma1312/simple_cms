@@ -2,30 +2,30 @@
 
   session_start();
 
-  include("../classes/error.php");
+  include("../classes/userMessage.php");
 
   if(!isset($_SESSION['logged_in'])) {
-    $error = new myError("Unauthorized access.");
+    $error = new userMessage("Unauthorized access.", "error");
     header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_POST['editor'])) {
-    $error = new myError("Post data missing.");
+    $error = new userMessage("Post data missing.", "error");
     header("Location: ../../cms.php");
     session_destroy();
     die();
   }
 
   if(strlen($_POST['editor']) < 1) {
-    $error = new myError("No text recieved.");
+    $error = new userMessage("No text recieved.", "error");
     header("Location: ../../cms.php");
     die();
   }
 
   if(!isset($_GET['cid'])) {
-    $error = new myError("CID missing.");
+    $error = new userMessage("CID missing.", "error");
     header("Location: ../../cms.php");
     session_destroy();
     die();
@@ -44,7 +44,7 @@
   $result = $conn->query("SELECT aid FROM content WHERE cid = " . $cid);
 
   if($result->num_rows < 1) {
-    $error = new myError("The post you're trying to edit doesn't exist.");
+    $error = new userMessage("The post you're trying to edit doesn't exist.", "error");
     header("Location: ../../cms.php");
     die();
   }
@@ -52,14 +52,14 @@
   $result = $result->fetch_assoc();
 
   if($result['aid'] != $_SESSION['aid']) {
-    $error = new myError("You can only edit your own posts!");
+    $error = new userMessage("You can only edit your own posts!", "error");
     header("Location: ../../cms.php");
     die();
   }
 
   if(isset($_POST['title'])) {
     if(strlen($_POST['title']) < 1) {
-      $error = new myError("The title can't be empty!");
+      $error = new userMessage("The title can't be empty!", "error");
       header("Location: ../../cms.php");
       die();
     }
@@ -76,21 +76,20 @@
   }
 
   if(!$conn->query($query)) {
-      $error = new myError("Update failed, please try again!");
+      $error = new userMessage("Update failed, please try again!", "error");
       header("Location: ../../cms.php");
       die();
   }
 
   if(isset($query1)) {
     if(!$conn->query($query1)) {
-      $error = new myError("Update failed, please try again!");
+      $error = new userMessage("Update failed, please try again!", "error");
       header("Location: ../../cms.php");
       die();
     }
   }
 
-  include("../classes/success.php");
-  $success = new mySuccess("The entry has been updated successful.");
+  $success = new userMessage("The entry has been updated successful.", "success");
 
   header("Location: ../../cms.php");
   die();

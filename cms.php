@@ -76,7 +76,5 @@
   <script src="js/cms.js"></script>
   <script src="js/global.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-  <script src="js/error_success_helper.js"></script>
-  <script src="js/error.js"></script>
-  <script src="js/success.js"></script>
+  <script src="js/user_message.js"></script>
 </html>

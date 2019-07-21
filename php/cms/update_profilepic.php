@@ -2,17 +2,17 @@
 
   session_start();
 
-  include("../classes/error.php");
+  include("../classes/userMessage.php");
 
   if(!isset($_SESSION['logged_in'])) {
-    $error = new myError("Unauthorized access.");
+    $error = new userMessage("Unauthorized access.", "error");
     header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_FILES['pic'])) {
-    $error = new myError("No file found");
+    $error = new userMessage("No file found", "error");
     header("Location: ../../settings.php");
     die();
   }
@@ -33,7 +33,7 @@
   $file = new File($_FILES['pic'], $conn);
 
   if(!$file->checkFile()) {
-    $error = new myError($file->error);
+    $error = new userMessage($file->error, "error");
     header("Location: ../../settings.php");
     die();
   }
@@ -41,13 +41,13 @@
   $query = "UPDATE admin SET profile_pic = '" . $file->insertName . "' WHERE aid = " . $_SESSION['aid'];
 
   if(!move_uploaded_file($_FILES['pic']['tmp_name'], $file->fullFileName)) {
-    $error = new myError("Moving the uploaded file failed.");
+    $error = new userMessage("Moving the uploaded file failed.", "error");
     header("Location: ../../settings.php");
     die();
   }
 
   if(!$conn->query($query)) {
-    $error = new myError("Database update failed.");
+    $error = new userMessage("Database update failed.", "error");
     header("Location: ../../settings.php");
     die();
   }
@@ -56,8 +56,7 @@
     unlink($_SERVER['DOCUMENT_ROOT'] . "/" . $old);
   }
 
-  include("../classes/success.php");
-  $success = new mySuccess("The profile pic has successfully been updated.");
+  $success = new userMessage("The profile pic has successfully been updated.", "success");
 
   header("Location: ../../settings.php");
   die();

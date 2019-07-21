@@ -2,23 +2,23 @@
 
   session_start();
 
-  include("../classes/error.php");
+  include("../classes/userMessage.php");
 
   if(!isset($_SESSION['logged_in'])) {
-    $error = new myError("Unauthorized access.");
+    $error = new userMessage("Unauthorized access.", "error");
     header("Location: ../../login.php");
     session_destroy();
     die();
   }
 
   if(!isset($_POST['password_1']) || !isset($_POST['password_2'])) {
-    $error = new myError("Post variables missing!");
+    $error = new userMessage("A password is missing!", "error");
     header("Location: ../../settings.php");
     die();
   }
 
   if($_POST['password_1'] != $_POST['password_2']) {
-    $error = new myError("Passwords do not match!");
+    $error = new userMessage("Passwords do not match!", "error");
     header("Location: ../../settings.php");
     die();
   }
@@ -32,13 +32,12 @@
   $query = "UPDATE admin SET password = '" . $password . "' WHERE aid = " . $_SESSION['aid'];
 
   if(!$conn->query($query)) {
-    $error = new myError("Updating the password failed!");
+    $error = new userMessage("Updating the password failed!", "error");
     header("Location: ../../settings.php");
     die();
   }
 
-  include("../classes/success.php");
-  $success = new mySuccess("The password has successfully been updated.");
+  $success = new userMessage("The password has successfully been updated.", "success");
 
   header("Location: ../../settings.php");
   die();
