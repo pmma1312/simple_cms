@@ -14,6 +14,8 @@ function getOverview() {
 }
 
 function displayOverview(xhttp) {
+  var i = 0;
+
   var data = JSON.parse(xhttp.responseText);
   var parent = document.querySelector(".main");
 
@@ -21,7 +23,7 @@ function displayOverview(xhttp) {
     var listEntry = document.createElement("div");
 
     listEntry.className = "listEntry";
-    listEntry.setAttribute("onclick", "javascript:window.location('index.html?page=" + item['cid'] + "')");
+    listEntry.setAttribute("onclick", "window.location = 'index.html?page=" + i + "';");
     listEntry.style = "cursor: pointer";
 
     parent.appendChild(listEntry);
@@ -41,6 +43,8 @@ function displayOverview(xhttp) {
     listEntry.appendChild(articleTitle);
     listEntry.appendChild(articleAuthor);
     listEntry.appendChild(articleDate);
+
+    i++;
 
   });
 
