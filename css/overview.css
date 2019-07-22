@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Pavanam&display=swap');
+
+/* Default Tags */
+* {
+  color: white;
+  font-family: 'Pavanam', sans-serif;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: rgb(20, 20, 20);
+}
+
+/* Classes */
+.container {
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.main {
+  flex: 100%;
+  min-height: 85vh;
+  border: 2px solid white;
+  max-width: 50%;
+  margin: auto;
+  margin-top: 64px;
+}
