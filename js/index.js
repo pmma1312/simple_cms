@@ -18,6 +18,9 @@ if (document.location.toString().indexOf('?') !== -1) {
 
 if ($_GET['page'] != null) {
   document.onload = getBlogPost($_GET['page']);
+  i = $_GET['page'];
+  var url = String(window.location.href).split("?")[0];
+  window.history.pushState(null, null, url);
 } else {
   document.onload = getBlogPost(i);
 }
@@ -32,7 +35,14 @@ function getBlogPost(page) {
       displayEntries(xhttp);
     } else if (this.readyState == 4 && this.status == 204) {
       i -= 1;
-      alert("Oldest entry!");
+      Swal.fire({
+        title: "Oldest entry!",
+        text: "You've reached the end",
+        type: "info",
+        confirmButtonText: "Ok"
+      });
+      document.querySelector(".swal2-modal").style.backgroundColor = "rgb(20, 20, 20)";
+      document.querySelector(".swal2-title").style.color = "white";
     }
   }
   xhttp.open("GET", "php/api/query.php?page=" + page, true);
@@ -128,8 +138,16 @@ function displayEntries(xhttp) {
 }
 
 function newPost(type) {
+  i = parseInt(i, 10);
   if (i == 0 && type == "prev") {
-    alert("Newest entry!");
+    Swal.fire({
+      title: "Newest entry!",
+      text: "You've reached the start",
+      type: "info",
+      confirmButtonText: "Ok"
+    });
+    document.querySelector(".swal2-modal").style.backgroundColor = "rgb(20, 20, 20)";
+    document.querySelector(".swal2-title").style.color = "white";
   } else if (type == "next") {
     i += 1;
   } else {

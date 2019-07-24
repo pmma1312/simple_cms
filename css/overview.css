@@ -15,7 +15,6 @@ html, body {
 /* Classes */
 .container {
   display: flex;
-  margin-bottom: 8px;
 }
 
 .main {
@@ -26,6 +25,7 @@ html, body {
   max-width: 50%;
   margin: auto;
   margin-top: 64px;
+  margin-bottom: 16px;
 }
 
 .listEntry {
