@@ -21,10 +21,12 @@ function displayOverview(xhttp) {
 
   data.forEach(function(item, index) {
     var listEntry = document.createElement("div");
+    var entryInfo = document.createElement("div");
 
     listEntry.className = "listEntry";
     listEntry.setAttribute("onclick", "window.location = 'index.html?page=" + i + "';");
-    listEntry.style = "cursor: pointer";
+
+    entryInfo.className = "entryInfo";
 
     parent.appendChild(listEntry);
 
@@ -41,8 +43,10 @@ function displayOverview(xhttp) {
     articleDate.innerHTML = item["entry_date"];
 
     listEntry.appendChild(articleTitle);
-    listEntry.appendChild(articleAuthor);
-    listEntry.appendChild(articleDate);
+    listEntry.appendChild(entryInfo);
+
+    entryInfo.appendChild(articleAuthor);
+    entryInfo.appendChild(articleDate);
 
     i++;
 
