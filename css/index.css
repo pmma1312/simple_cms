@@ -106,10 +106,17 @@ pre {
   white-space: pre-wrap;
 }
 
+.links {
+  text-align: center;
+  display: flex;
+}
+
 .link {
+  color: white;
   padding: 8px;
   margin: 8px;
   display: block;
+  flex: 50%;
 }
 
 .btn {

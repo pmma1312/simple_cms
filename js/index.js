@@ -106,11 +106,24 @@ function displayEntries(xhttp) {
   control.appendChild(prev);
   control.appendChild(next);
 
+  var links = document.createElement("div");
+  links.className = "links";
+
+  var overview = document.createElement("a");
   var login = document.createElement("a");
+
+  overview.setAttribute("href", "overview.html");
+  overview.className = "link";
+  overview.innerHTML = "Overview of articles"
+
   login.setAttribute("href", "login.php");
   login.className = "link";
   login.innerHTML = "Admin Panel Login";
-  parent.appendChild(login);
+
+  parent.appendChild(links);
+
+  links.appendChild(overview);
+  links.appendChild(login);
 
 }
 

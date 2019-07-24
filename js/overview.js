@@ -19,6 +19,14 @@ function displayOverview(xhttp) {
   var data = JSON.parse(xhttp.responseText);
   var parent = document.querySelector(".main");
 
+  var home = document.createElement("a");
+
+  home.className = "link";
+  home.setAttribute("href", "index.html");
+  home.innerHTML = "Back to Home";
+
+  parent.appendChild(home);
+
   data.forEach(function(item, index) {
     var listEntry = document.createElement("div");
     var entryInfo = document.createElement("div");

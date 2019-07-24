@@ -29,7 +29,7 @@ html, body {
 }
 
 .listEntry {
-  margin: 8px;
+  margin: 16px;
   border: 2px solid rgba(255, 255, 255, 0.3);
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
@@ -59,4 +59,11 @@ html, body {
 .articleAuthor, .articleDate {
   flex: 50%;
   padding: 8px;
+}
+
+.link {
+  padding: 8px;
+  margin: 8px;
+  display: block;
+  flex: 50%;
 }
