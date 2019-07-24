@@ -18,6 +18,7 @@ pre {
   font-family: consolas;
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
+  overflow: auto;
 }
 
 /* Classes */
@@ -38,6 +39,7 @@ pre {
   margin-bottom: 32px;
   border: 2px groove rgba(255, 255, 255, 0.3);
   border-radius: 4px;
+  max-width: 60%;
 }
 
 .left, .right {
