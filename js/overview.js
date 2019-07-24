@@ -47,8 +47,8 @@ function displayOverview(xhttp) {
     articleDate.className = "articleDate";
 
     articleTitle.innerHTML = item["title"];
-    articleAuthor.innerHTML = item["username"];
-    articleDate.innerHTML = item["entry_date"];
+    articleAuthor.innerHTML = "By: " + item["username"];
+    articleDate.innerHTML = "On: " + item["entry_date"];
 
     listEntry.appendChild(articleTitle);
     listEntry.appendChild(entryInfo);
