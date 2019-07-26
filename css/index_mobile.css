@@ -1,18 +1,12 @@
 @media only screen and (max-width: 1400px) {
-  pre {
-    overflow: auto;
-  }
-
   .container {
     flex-direction: column;
   }
 
   .main {
     flex: 100%;
-    max-width: 90%;
-    width: 90%;
     margin: auto;
-    margin-top: 18px;
+    margin-top: 64px;
     flex-grow: 3;
   }
 
@@ -22,5 +16,26 @@
     height: 0;
     display: none;
     width: 0;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .main {
+    max-width: 90%;
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .main {
+    max-width: 80%;
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .main {
+    max-width: 70%;
+    width: 70%;
   }
 }
