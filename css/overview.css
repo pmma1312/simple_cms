@@ -32,6 +32,7 @@ html, body {
 .main::-webkit-scrollbar {
   width: 0.6em;
   margin: 4px;
+  z-index: -1;
 }
 
 .main::-webkit-scrollbar-track {

@@ -54,7 +54,7 @@ function displayEntries(xhttp) {
     parent.appendChild(child);
     var grandChild = document.createElement('div');
     grandChild.className = "entry-info"
-    child.appendChild(grandChild);
+
 
     var username = document.createElement('div');
     var entry_date = document.createElement('div');
@@ -64,7 +64,7 @@ function displayEntries(xhttp) {
 
     username.className = "username";
     entry_date.className = "entry_date";
-    title.className = "text";
+    title.className = "text title";
     text.className = "text";
     lastEdited.className = "text";
 
@@ -79,6 +79,8 @@ function displayEntries(xhttp) {
 
     title.setAttribute('id', item['cid'] + "_t");
     child.append(title);
+
+    child.appendChild(grandChild);
 
     text.setAttribute('id', item['cid']);
     child.appendChild(text);
