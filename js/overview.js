@@ -51,5 +51,4 @@ function displayOverview(xhttp) {
     i++;
 
   });
-
 }
