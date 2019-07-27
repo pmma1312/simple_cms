@@ -13,18 +13,12 @@ html, body {
 }
 
 /* Classes */
-.container {
-  display: flex;
-}
-
 .main {
-  flex: 100%;
   max-height: 85vh;
   border: 2px groove rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   max-width: 50%;
   margin: auto;
-  margin-top: 64px;
   margin-bottom: 16px;
   overflow-y: scroll;
 }
@@ -51,6 +45,7 @@ html, body {
   border-radius: 4px;
   transition-property: border box-shadow;
   transition: all 0.5s ease-out;
+  z-index: -1;
 }
 
 .listEntry:hover {
@@ -82,7 +77,9 @@ html, body {
 
 .link {
   padding: 8px;
-  margin: 8px;
+  margin: auto;
+  margin-top: 40px;
+  width: 50%;
   display: block;
   flex: 50%;
 }

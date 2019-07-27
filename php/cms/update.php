@@ -52,7 +52,7 @@
   $result = $result->fetch_assoc();
 
   if($result['aid'] != $_SESSION['aid']) {
-    $error = new userMessage("You can only edit your own posts!", "error");
+    $error = new userMessage("You can only edit your own entrys!", "error");
     header("Location: ../../cms.php");
     die();
   }

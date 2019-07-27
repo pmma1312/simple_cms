@@ -1,17 +1,20 @@
 @media only screen and (max-width: 800px) {
-  .main {
+  .main, .link {
+    width: 90%;
     max-width: 90%;
   }
 }
 
 @media only screen and (max-width: 1000px) {
-  .main {
+  .main, .link {
+    width: 80%;
     max-width: 80%;
   }
 }
 
 @media only screen and (max-width: 1200px) {
-  .main {
+  .main, .link {
+    width: 70%;
     max-width: 70%;
   }
 }
