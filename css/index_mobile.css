@@ -1,6 +1,17 @@
 @media only screen and (max-width: 1400px) {
-  .container {
+  .container, .articleInfo, .nameDate {
     flex-direction: column;
+    flex-grow: 0;
+  }
+
+  .author, .entry_date {
+    height: auto;
+    width: auto;
+    margin: 0;
+  }
+
+  .author {
+    margin-bottom: 16px;
   }
 
   .main {
@@ -21,8 +32,8 @@
 
 @media only screen and (max-width: 800px) {
   .main {
-    max-width: 90%;
-    width: 90%;
+    max-width: 95%;
+    width: 95%;
   }
 }
 
