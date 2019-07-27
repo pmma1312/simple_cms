@@ -64,19 +64,24 @@ function displayEntries(xhttp) {
     var articleInfo = document.createElement("div");
     articleInfo.className = "articleInfo";
 
+    var nameDate = document.createElement("div");
+    nameDate.className = "nameDate";
 
-    var author = document.createElement("div");
-    var pp = document.createElement("img");
     var title = document.createElement("div");
-    var text = document.createElement("div");
+
+    var pp = document.createElement("img");
+    var author = document.createElement("div");
     var entry_date = document.createElement("div");
 
+    var text = document.createElement("div");
 
-    author.className = "author";
-    pp.className = "profile_pic";
     title.className = "title";
-    text.className = "text";
+
+    pp.className = "profile_pic";
+    author.className = "author";
     entry_date.className = "entry_date";
+
+    text.className = "text";
 
     pp.src = item['profile_pic'];
     pp.alt = "author picture"
@@ -87,12 +92,14 @@ function displayEntries(xhttp) {
     entry_date.innerHTML = "Published: " + item['entry_date'];
 
     parent.appendChild(title);
-    parent.appendChild(pp);
 
     parent.appendChild(articleInfo);
 
-    articleInfo.appendChild(author);
-    articleInfo.appendChild(entry_date);
+    articleInfo.appendChild(pp);
+    articleInfo.appendChild(nameDate)
+
+    nameDate.appendChild(author);
+    nameDate.appendChild(entry_date);
 
     parent.appendChild(text);
     document.title = item['title'];
