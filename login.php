@@ -9,7 +9,7 @@
 
   if(isset($_POST['username']) && isset($_POST['password'])) {
     include("php/cms/login.php");
-    include("php/classes/error.php");
+    include("php/classes/userMessage.php");
 
     $login = new Login($_POST['username'], $_POST['password']);
 
@@ -20,7 +20,7 @@
       header("Location: cms.php");
       die();
     } else {
-      $error = new myError("Invalid username or password!");
+      $error = new userMessage("Invalid username or password!", "error");
       header("Location: login.php");
       die();
     }

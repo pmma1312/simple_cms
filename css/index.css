@@ -67,6 +67,7 @@ pre {
   border: 2px solid rgba(255, 255, 255, 0.5);
   font-size: 20px;
   border-radius: 4px;
+  text-align: left;
 }
 
 .author, .entry_date {

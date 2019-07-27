@@ -17,6 +17,12 @@
     die();
   }
 
+  if(strlen($_POST['username']) > 13 || strlen($_POST['username']) < 1) {
+    $error = new userMessage("Username is too short or too long!", "error");
+    header("Location: ../../settings.php");
+    die();
+  }
+
   include("../api/core/database.php");
   $conn = new Database();
   $conn = $conn->getConn();
