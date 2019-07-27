@@ -1,7 +1,12 @@
-@media only screen and (max-width: 1400px) {
+@media only screen and (max-width: 1200px) {
   input[type=submit] {
     display: block;
     margin-bottom: 16px;
+  }
+
+  button {
+    width: 100%;
+    max-width: 100%;
   }
 
   .control, .entry, .entry-info, .buttons, .info, .edit {
@@ -31,10 +36,12 @@
   }
 
   .text, .username, .entry_date, .entry_info, .buttons {
+    box-sizing: border-box;
     width: auto;
+    max-width: 97%;
   }
 
-  .text, .username, .entry_date {
-    max-width: 92%;
+  .field {
+    max-width: 684px;
   }
 }

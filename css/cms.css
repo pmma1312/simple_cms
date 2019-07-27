@@ -71,7 +71,9 @@ button:hover {
 }
 
 pre {
+  max-width: 100% !important;
   overflow: auto;
+  word-wrap: break-word;
 }
 
 /* Classes */
@@ -101,21 +103,21 @@ pre {
   position: relative;
   box-sizing: border-box;
   flex: 50%;
-  overflow: auto;
+  overflow-y: scroll;
 }
 
-.entry-list::-webkit-scrollbar {
+.entry-list::-webkit-scrollbar, textarea::-webkit-scrollbar {
   width: 0.8em;
   margin: 4px;
   z-index: -1;
 }
 
-.entry-list::-webkit-scrollbar-track {
+.entry-list::-webkit-scrollbar-track, textarea::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
   border-radius: 0px;
 }
 
-.entry-list::-webkit-scrollbar-thumb {
+.entry-list::-webkit-scrollbar-thumb, textarea::-webkit-scrollbar-thumb {
   background-color: rgba(255, 255, 255, 0.1);
 }
 

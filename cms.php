@@ -57,7 +57,7 @@
                 &lt;a&gt;
               </p>
             </div>
-            <div class="buttons">
+            <div class="buttons field">
               <button type="button" name="button" class="btn" onclick="javascript:newEntry();">New Blog Entry</button>
               <button type="button" name="button" class="btn" onclick="javascript:clearInputFields();">Clear Text Input Fields</button>
             </div>

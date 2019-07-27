@@ -97,7 +97,7 @@ function displayEntries(xhttp) {
     grandChild.append(edit);
     var del = document.createElement('button');
     del.innerHTML = "Delete";
-    del.setAttribute('onclick', "location.href='php/cms/delete.php?cid=" + item['cid'] + "'");
+    del.setAttribute('onclick', "javascript:deleteItem(" + item['cid'] + ")");
     del.className = "delete";
     grandChild.append(del);
     i += 1;
@@ -138,4 +138,23 @@ function clearInputFields() {
   textarea.removeAttribute('id');
   textarea.value = "";
   in_title.value = "";
+}
+
+function deleteItem(cid) {
+  window.setTimeout(function() {
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.value) {
+        location.href = "php/cms/delete.php?cid=" + cid + "";
+      }
+    })
+    document.getElementById("swal2-content").style.color = "rgb(20, 20, 20)";
+  }, 10);
 }
